@@ -255,7 +255,7 @@ export const Player: React.FC<Props> = (props) => {
               <audio
                 ref={playerRef}
                 style={{ width: '100%' }}
-                src={`/api/play/${playerContext.currentTrack}`}
+                src={`/api/play${playerContext.currentTrack}`}
                 autoPlay
               />
               <Box

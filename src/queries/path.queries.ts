@@ -27,7 +27,7 @@ function jsonPathToNodes(json: any[]): PathNode[] {
 }
 
 async function fetchPath(path: string) {
-  const res = await fetch(`/api/path/${path}`)
+  const res = await fetch(`/api/path${path}`)
   const json = await res.json();
 
   return jsonPathToNodes(json);
