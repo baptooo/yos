@@ -3,13 +3,15 @@ import {
   HStack, Kbd,
   Skeleton,
   Text,
-  theme
+  theme,
+  useColorMode
 } from '@chakra-ui/react';
 import React from 'react';
 import { useQueryInfo } from '../queries/info.queries';
 
 export const AppTitle: React.FC = () => {
   const queryInfo = useQueryInfo()
+  const {colorMode} = useColorMode()
 
   const startedAt = React.useMemo(() => {
     if (queryInfo.data == null) { return '' }
@@ -34,10 +36,10 @@ export const AppTitle: React.FC = () => {
         >Your Own Stream</Heading>
         <Heading size="lg">🦩</Heading>
       </HStack>
-      <Box textAlign="right">
+      <Box textAlign="right" color={colorMode === 'light' ? 'gray.600' : 'gray.300'}>
         <Code fontSize="lg" marginBottom="2">:{queryInfo.data?.absolutePath}</Code>
-        <Text fontSize="md" color="gray.600">Started at: {startedAt}</Text>
-        <Text marginTop="4" fontSize="sm" color="gray.600">(Press <Kbd>H</Kbd> for help)</Text>
+        <Text fontSize="md">Started at: {startedAt}</Text>
+        <Text marginTop="4" fontSize="sm">(Press <Kbd>H</Kbd> for help)</Text>
       </Box>
     </Skeleton>
   );

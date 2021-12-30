@@ -17,8 +17,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 ### `yarn yos /path/to/music`
 
 Runs the server for the given `/path/to/music`. The interface will simply list found `.flac` files in the directory your did provide.

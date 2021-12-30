@@ -33,6 +33,7 @@ export const BouncingCat: React.FC<Props> = (props) => {
         borderBottom="2px solid"
         borderColor="teal.400"
         borderRadius="50%"
+        pointerEvents="none"
         src={bouncingCat}
       />
     </Fade>

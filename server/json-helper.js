@@ -9,10 +9,10 @@ async function getMetaData(path) {
   const [artist, title, album, date] = metadata.native?.vorbis||[];
   
   return {
-    artist: artist.value,
-    title: title.value,
-    album: album.value,
-    date: date.value,
+    artist: artist?.value ?? '',
+    title: title?.value ?? '',
+    album: album?.value ?? '',
+    date: date?.value ?? '',
   }
 }
 

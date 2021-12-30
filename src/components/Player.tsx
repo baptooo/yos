@@ -6,6 +6,7 @@ import {
   IconButton, Progress,
   Slide,
   Text,
+  useColorMode,
   useDisclosure
 } from '@chakra-ui/react';
 import React from 'react';
@@ -28,6 +29,7 @@ function timeInSecondsToPaddedMinutes(time: number) {
 }
 
 export const Player: React.FC<Props> = (props) => {
+  const {colorMode} = useColorMode()
   const playerContext = usePlayerContext()
   const playerRef = React.createRef<HTMLAudioElement>();
   const [isPlaying, setIsPlaying] = React.useState(false);
@@ -188,16 +190,16 @@ export const Player: React.FC<Props> = (props) => {
     <Slide
       direction='bottom'
       in={playerContext.currentTrack != null}
-      style={{ zIndex: 10 }}
+      style={{ zIndex: 100 }}
     >
       <Box
-        background="white"
+        background={colorMode === 'light' ? 'white' : 'gray.700'}
         paddingX="16"
         paddingBottom="4"
         paddingTop="2"
         color="teal.400"
         borderTop="1px solid"
-        borderColor="gray.100"
+        borderColor={colorMode === 'light' ? 'gray.100' : 'gray.600'}
         transition="box-shadow 0.3s ease-in-out"
         boxShadow={
           playerContext.currentTrack != null && playlistDisclosure.isOpen

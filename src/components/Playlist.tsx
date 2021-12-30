@@ -1,5 +1,5 @@
 import { AddIcon, CloseIcon, DeleteIcon, MinusIcon } from '@chakra-ui/icons';
-import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Collapse, Divider, Heading, HStack, IconButton, Link, List, ListIcon, ListItem, useDisclosure, UseDisclosureProps, UseDisclosureReturn, VStack } from '@chakra-ui/react';
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Collapse, Divider, Heading, HStack, IconButton, Link, List, ListIcon, ListItem, useColorMode, useDisclosure, UseDisclosureProps, UseDisclosureReturn, VStack } from '@chakra-ui/react';
 import React from 'react';
 import { usePlayerContext } from '../contexts/player.context';
 import { useHighlighted, useTrackName } from '../helpers/use-display-path';
@@ -11,6 +11,7 @@ interface Props {
 
 export const PlayList: React.FC<Props> = (props) => {
   const { isOpen, onToggle } = props.disclosure;
+  const {colorMode} = useColorMode()
   const playerContext = usePlayerContext();
   const trackName = useTrackName();
   const isHighlighted = useHighlighted()
@@ -42,7 +43,7 @@ export const PlayList: React.FC<Props> = (props) => {
         paddingTop="4"
         paddingBottom="8"
         spacing="4"
-        background="white"
+        background={colorMode === 'light' ? 'white' : 'gray.700'}
         alignItems="flex-start"
         maxHeight="calc(100vh - 200px)"
         overflowY="scroll"

@@ -1,5 +1,8 @@
-import { Box, ChakraProvider, Flex, Image, Stack } from '@chakra-ui/react';
-import "@fontsource/walter-turncoat";
+import {
+  ChakraProvider,
+  Flex, Stack
+} from '@chakra-ui/react';
+import '@fontsource/walter-turncoat';
 import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Bootstrap } from './Bootstrap';
@@ -9,12 +12,13 @@ import { Help } from './components/Help';
 import { PathList } from './components/PathList';
 import { Player } from './components/Player';
 import { PlayerContextProvider } from './contexts/player.context';
+import yosTheme from './theme/yos-theme';
 
 const queryClient = new QueryClient()
 
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={yosTheme}>
       <QueryClientProvider client={queryClient}>
         <PlayerContextProvider>
           <Bootstrap>
