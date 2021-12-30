@@ -5,10 +5,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Three steps to follow and you're ready to go !
 
-- [Three steps to go](#three-steps-to-go)
-
-## Three steps to go
-
 ### `yarn`
 
 Install all the dependencies required for the project
